@@ -12,7 +12,7 @@ class GetDateFromServer(val context: Context, private val getInterface : GetInte
 
     fun getOpened() {
 
-        val saveDate = SaveLoadSharedPreference(context)
+        val saveDate = SaveLoadSharedPreferenceInterface(context)
 
         val call: Call<Link> = getInterface.getProd()
         call.enqueue(object : Callback<Link?> {

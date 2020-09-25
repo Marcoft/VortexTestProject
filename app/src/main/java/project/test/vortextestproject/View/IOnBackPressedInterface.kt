@@ -1,5 +1,5 @@
 package project.test.vortextestproject.View
 
-interface IOnBackPressed {
+interface IOnBackPressedInterface {
     fun onBackPressed(): Boolean
 }

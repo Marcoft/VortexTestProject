@@ -2,7 +2,7 @@ package project.test.vortextestproject.Presenter
 
 import android.content.Context
 
-class SaveLoadSharedPreference(var context: Context) : SaveLoadPreference {
+class SaveLoadSharedPreferenceInterface(var context: Context) : SaveLoadPreferenceInterface {
 
     private val save_load = "save_load"
 

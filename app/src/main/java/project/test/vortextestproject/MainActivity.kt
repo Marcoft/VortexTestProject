@@ -5,12 +5,11 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.fragment_web_view.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import project.test.vortextestproject.RetrofitModel.GetInterface
 import project.test.vortextestproject.View.FragmentLoading
-import project.test.vortextestproject.View.IOnBackPressed
+import project.test.vortextestproject.View.IOnBackPressedInterface
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -62,8 +61,12 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val fragment =
             this.supportFragmentManager.findFragmentById(R.id.fragment_container)
-        (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let {
-            //
+        (fragment as? IOnBackPressedInterface)?.onBackPressed()?.not()?.let {
+            if (it){
+                // webView go back
+            } else {
+                super.onBackPressed()
+            }
         }
     }
 

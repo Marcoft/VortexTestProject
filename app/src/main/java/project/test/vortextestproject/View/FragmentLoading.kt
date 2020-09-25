@@ -49,7 +49,19 @@ class FragmentLoading(private var getInterface: GetInterface?) : Fragment() {
 
     fun progressAnimation() {
         val anim = ProgressBarAnimation(context, progressBar, textProgress, 0f, 100f)
-        anim.duration = 8000
+
+        //Check is it a first enter
+        val sp  = context!!.getSharedPreferences(firstStartApp, Context.MODE_PRIVATE) // Check First Enter
+        var firstStart = false
+        if (sp != null) {
+            firstStart = sp.getBoolean("firstStart", true)
+        }
+        if (firstStart) {
+            anim.duration = 8000 // if first long load
+        }else{
+            anim.duration = 2000 // else fast load
+        }
+
         progressBar!!.animation = anim
     }
 

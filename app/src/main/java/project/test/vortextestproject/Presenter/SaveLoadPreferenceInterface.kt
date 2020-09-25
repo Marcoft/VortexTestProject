@@ -1,6 +1,6 @@
 package project.test.vortextestproject.Presenter
 
-interface SaveLoadPreference {
+interface SaveLoadPreferenceInterface {
 
     fun loadLink(link : String): String?
 

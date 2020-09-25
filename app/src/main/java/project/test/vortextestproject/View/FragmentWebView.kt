@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import project.test.vortextestproject.R
 
-class FragmentWebView(var url: String) : Fragment(), IOnBackPressed {
+class FragmentWebView(var url: String) : Fragment(), IOnBackPressedInterface {
 
     lateinit var webView: WebView;
     lateinit var progressWeb : ProgressBar;
@@ -61,9 +60,9 @@ class FragmentWebView(var url: String) : Fragment(), IOnBackPressed {
     override fun onBackPressed(): Boolean {
         return if (webView.canGoBack()) {
             webView.goBack()
-            true
-        } else {
             false
+        } else {
+            true
         }
     }
 

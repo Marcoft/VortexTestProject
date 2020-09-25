@@ -7,7 +7,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import project.test.vortextestproject.MainActivity
 import project.test.vortextestproject.R
-import project.test.vortextestproject.RetrofitModel.GetInterface
 import project.test.vortextestproject.View.FragmentWebView
 
 class ProgressBarAnimation(
@@ -32,7 +31,7 @@ class ProgressBarAnimation(
                 val firstEnterInApp = FirstEnter(context!!)
                 i = 0
 
-                val loadDate = SaveLoadSharedPreference(context!!)
+                val loadDate = SaveLoadSharedPreferenceInterface(context!!)
                 val url = loadDate.loadLink(firstEnterInApp.firstEnter()).toString()
 
                 (context as MainActivity).supportFragmentManager.beginTransaction().replace(
